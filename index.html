@@ -1,0 +1,289 @@
+<!-- External CSS Link -->
+<head></head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+@import url("css/style.css");
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus - A Guide to the Future</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Internal CSS Styling -->
+  <style>
+  /* Global Body Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      background: url('images/holborn background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0ff;
+    }
+
+     /* Section Styling for Readability */
+    .intro, .highlights {
+      background: rgba(30, 30, 50, 0.8);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+      color: #f0f0ff;
+    }
+
+    /* Hidden Autoplay Video */
+    .hiddenFrame{
+    height:1px;
+    width:1px;
+    opacity: 0;
+    }
+
+    .highlights ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .highlights ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Accessibility Dropdown Styles */
+    .accessibility-dropdown {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background: linear-gradient(145deg,#8e44ad, #5a4dff);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 25px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 145, 255, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    z-index: 2000;
+    }
+
+    .accessibility-dropdown:hover {
+    background: linear-gradient(145deg,#8e44ad, #5a4dff);
+    box-shadow: 0 6px 20px rgba(0, 145, 255, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none;
+      position: fixed;
+      top: 50px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+    }
+
+    .dropdown-menu button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #f1f1f1;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .dropdown-menu button:hover {
+      background: #e1e1e1;
+    }
+
+    .accessibility-dropdown.active + .dropdown-menu {
+      display: block;
+    }
+
+    /* Accessibility Features */
+
+    /* Light Mode Styles */
+
+    body.light-mode {
+      background: url('images/holborn-future-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4f0f6;
+    }
+
+    .intro.light-mode,
+    .highlights.light-mode {
+      background: rgba(168, 162, 177, 0.8);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+      color: #f0f0ff;
+    }
+
+    header.light-mode {
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav ul li a.light-mode {
+      color: #f3f3f8;
+    }
+
+    footer.light-mode {
+      background-color: #0c0b0b;
+      color: #f9f6f6;
+    }
+
+    .accessibility-dropdown.light-mode {
+      background: linear-gradient(145deg, #d2b2fb, #c69fe6);
+      color: #333;
+    }
+ 
+    /* Dyslexia-Friendly Font */
+
+    .dyslexia-mode {
+   font-family: 'OpenDyslexic', Arial, sans-serif; /* OpenDyslexic with fallback */
+   line-height: 2; /* Increase line spacing for readability */
+   letter-spacing: 0.05em; /* Slightly more spacing between letters */
+   background-color: #f7f7f7; /* Light background for better contrast */
+   color: #333; /* Dark text for high contrast */
+   }
+
+   /* Add a border for clarity */
+  .dyslexia-mode p,
+  .dyslexia-mode h1,
+  .dyslexia-mode h2,
+  .dyslexia-mode h3 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  }
+    
+  </style>
+
+  <!-- JavaScript Functions -->
+  <script>
+  // Text-to-Speech Function
+  function speakText(text) {
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = 'en-US';
+      window.speechSynthesis.speak(speech);
+    }
+
+  // Reads Entire Page Content
+  function readPageContent() {
+      const text = document.body.textContent || document.body.innerText;
+      speakText(text);
+    }
+
+  // Stop Text-to-Speech
+  function stopReading() {
+  window.speechSynthesis.cancel(); // Stop any ongoing speech
+}
+
+  // Reset to Default Function 
+  function resetToDefault() {
+  stopReading(); // Stop Text-to-Speech if running
+  document.body.classList.remove("light-mode", "dyslexia-mode"); // Remove accessibility classes
+  document.querySelectorAll(".intro, .highlights, header, footer, .accessibility-dropdown, nav ul li a").forEach((el) => {
+  el.classList.remove("light-mode", "dyslexia-mode");
+});
+}
+  // Color Scheme Toggle for accessibility modes
+  function toggleColorScheme(mode) {
+      document.body.classList.remove("light-mode", "dyslexia-mode");
+      if (mode === "light") {
+        document.body.classList.add("light-mode");
+        document.querySelectorAll(".intro, .highlights, header, footer, .accessibility-dropdown, nav ul li a").forEach((el) => {
+          el.classList.add("light-mode");
+        });
+      } else if (mode === "dyslexia") {
+        document.body.classList.add("dyslexia-mode");
+      }
+      else {
+        // Default mode: remove all mode classes
+        document.querySelectorAll(".intro, .highlights, header, footer, .accessibility-dropdown, nav ul li a").forEach((el) => {
+          el.classList.remove("light-mode");
+        });
+    }
+  }
+
+    // Toggle Dropdown Menu
+    function toggleDropdown() {
+      document.querySelector('.accessibility-dropdown').classList.toggle('active');
+    }
+  </script>
+</head>
+<body>
+  <!-- Hidden Autoplay Video -->
+  <iframe class="hiddenFrame" width="560" height="315"
+    src="https://www.youtube.com/embed/U14GpQ5K03g?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  
+  <!-- Accessibility Dropdown Button -->
+  <button class="accessibility-dropdown" onclick="toggleDropdown()">Accessibility Options</button>
+  <div class="dropdown-menu">
+    <button onclick="readPageContent()">Read Page Content</button>
+    <button onclick="toggleColorScheme('light')">Enable Light Mode</button>
+    <button onclick="toggleColorScheme('dyslexia')">Enable Dyslexia-Friendly Font</button>
+    <button onclick="resetToDefault()">Reset to Default</button>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Nexus: A Guide to the Future</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="trends.html">Trends</a></li>
+        <li><a href="places.html">Places</a></li>
+        <li><a href="stories.html">Archive</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="about.html">About Us</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Intro Section -->
+  <main>
+    <section class="intro">
+      <h2 style="color: #ffffff;">Welcome to Holborn</h2>
+      <p style="color: #ffffff;">
+        Step into a world where Holborn's history and future converge. 
+        A decade of technological innovation, environmental transformation, and cultural evolution has reshaped this iconic district.  
+        Discover how the streets, landmarks, and daily life have adapted to challenges and opportunities of a rapidly changing world.  
+        Will tradition thrive amidst the rise of AI-powered businesses? How has the Thames influenced new floating neighborhoods?  
+        Explore the Holborn of tomorrow—where imagination becomes reality.
+      </p>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+      <h2>Highlights of Holborn</h2>
+      <ul>
+        <li><strong>Neo-Lincoln’s Inn Fields:</strong> A vertical eco-farm and AI-assisted cultural hub.</li>
+        <li><strong>The Digital Quarter:</strong> Home to quantum startups and holographic art galleries.</li>
+        <li><strong>Skyward Transport Hub:</strong> A gateway to the city via autonomous air taxis.</li>
+        <li><strong>Historic Preservation Zones:</strong> Timeless pubs and historic sites with augmented reality enhancements.</li>
+      </ul>
+    </section>
+  </main>
+  
+  <!-- Footer Section -->
+  <footer>
+    <p>©️ Nexus | Preserving History, Embracing the Future.</p>
+  </footer>
+</body>
+</html>

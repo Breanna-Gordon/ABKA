@@ -1,0 +1,340 @@
+<!-- Linking External CSS -->
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+@import url("css/style.css");
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta settings for character encoding and responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page Title -->
+  <title>Forum |Nexus</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Internal CSS Styling -->
+  <style>
+/* General body styles */
+ body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      background: url('images/forum background.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0ff;
+    }
+
+    /* Navigation bar styling */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    /* Forum container styling */
+    .forum-container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+     /* Forum title styling */
+    .forum-container h2 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem; /* Larger size */
+      font-weight: 700; /* Extra bold */
+      text-transform: uppercase; /* All caps for a bold statement */
+      letter-spacing: 2px; /* Spaced letters for futuristic appeal */
+      text-shadow: 0 0 8px #8e44ad, 0 0 16px #5a4dff; /* Glow effect */
+      margin-bottom: 1rem;
+    }
+
+     /* Chat log styling */
+    .chat-log {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 400px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .chat-item .timestamp{
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .reply {
+      margin-left: 30px;
+      border-left: 10px solid #6c5ce7;
+      padding-left: 20px;
+      margin-top: 10px;
+
+    }
+
+     /* Styling scrollbar for better aesthetics */
+    .chat-log::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-log::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+    }
+
+     /* Like and Dislike button styling */
+    .like-dislike {
+      margin-top: 0.5rem;
+    }
+
+    .like-dislike button {
+      background: #8e44ad;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .like-dislike button:hover {
+      transform: scale(1.05);
+    }
+
+    .new-comment {
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* New comment input and button styling */
+    .new-comment input {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .new-comment button {
+      background: #8e44ad;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .new-comment button:hover {
+      transform: scale(1.05);
+    }
+
+     /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    
+</style>
+</head>
+<body>
+
+  <!-- Hidden Autoplay Video -->
+ <iframe class="hiddenFrame" width="560" height="315"
+  src="https://www.youtube.com/embed/WXx5-HGERcg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  
+  <!-- Header Section with Navigation -->
+  <header>
+    <h1>Nexus</h1>
+    <nav>
+      <ul>
+       <li><a href="index.html">Home</a></li>
+        <li><a href="trends.html">Trends</a></li>
+        <li><a href="places.html">Places</a></li>
+        <li><a href="stories.html">Archive</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="about.html">About Us</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Forum Section -->
+  <main>
+    <section class="forum-container">
+      <h2>Community hub</h2>
+      <ul class="chat-log" id="chat-log">
+        <!-- Pre-existing chat logs will be displayed here -->
+      </ul>
+
+      <!-- Comment Input Field -->
+      <div class="new-comment">
+        <input type="text" id="commentInput" placeholder="Join the conversation...">
+        <button onclick="postComment()">Post Comment</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© Nexus | Preserving History, Embracing the Future.</p>
+  </footer>
+
+  <!-- JavaScript for Forum Functionality -->
+  <script>
+    // Social Media-like usernames
+    const usernames = [
+      "@BookLover22", "@FictionFan", "@TheReadingWizard", 
+      "@SciFiQueen", "@NovelExplorer", "@PageTurner", 
+      "@HolbornHistorian", "@LitCritic_101", "@FutureOfBooks", "@StorySeeker"
+    ];
+
+    // Function to generate random time for comments
+    function generateRandomTime() {
+      const hours = Math.floor(Math.random() * 24);
+      const minutes = Math.floor(Math.random() * 60);
+      const suffix = hours >= 12 ? 'PM' : 'AM';
+      const formattedHours = hours % 12 || 12;
+      const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+      return `${formattedHours}:${formattedMinutes} ${suffix}`;
+    }
+
+    // Dummy comments about books in the archives with likes and dislikes
+    const comments = [
+      { 
+        user: "@BookLover22", text: "I just finished reading the newly discovered texts about Holborn's 19th century underground libraries. Amazing!", 
+        time: generateRandomTime(), likes: 15, dislikes: 2, replies: [] 
+      },
+      { 
+        user: "@FictionFan", text: "Has anyone else read the Holborn Chronicles? The section on early artificial intelligence is mind-blowing.", 
+        time: generateRandomTime(), likes: 25, dislikes: 5, replies: [
+          { user: "@SciFiQueen", text: "Yes, I loved that part! It felt so futuristic even though it was written so long ago.", time: generateRandomTime(), likes: 10, dislikes: 1 }
+        ] 
+      },
+      { 
+        user: "@TheReadingWizard", text: "I’ve been diving into the memoirs from the 2030s. The perspective on the city's transformation is incredible.", 
+        time: generateRandomTime(), likes: 30, dislikes: 3, replies: [] 
+      },
+      { 
+        user: "@SciFiQueen", text: "I just started reading ‘The Future We Built’ from the archives. It's fascinating to see how people imagined the world we now live in.", 
+        time: generateRandomTime(), likes: 8, dislikes: 0, replies: [
+          { user: "@BookLover22", text: "Oh, I loved that book! It’s eerie how many predictions came true.", time: generateRandomTime(), likes: 4, dislikes: 0 }
+        ]
+      },
+      { 
+        user: "@NovelExplorer", text: "Anyone else read about Holborn’s role in the climate crisis archives? There’s some fascinating data on sustainable tech from 2029.", 
+        time: generateRandomTime(), likes: 14, dislikes: 3, replies: [] 
+      },
+      { 
+        user: "@StorySeeker", text: "I just uncovered an archived play written in the 2030s about a utopian society. It's almost chilling how accurate it seems now!", 
+        time: generateRandomTime(), likes: 20, dislikes: 0, replies: [
+          { user: "@PageTurner", text: "I’ve read that too. It’s so surreal how it predicted many of our current issues.", time: generateRandomTime(), likes: 12, dislikes: 1 }
+        ]
+      }
+    ];
+
+    // Function to load dummy chat logs dynamically
+    function loadComments() {
+      const chatLog = document.getElementById('chat-log');
+      chatLog.innerHTML = ''; // Clear current log
+      comments.forEach(comment => {
+        const commentItem = document.createElement('li');
+        commentItem.classList.add('chat-item');
+        commentItem.innerHTML = `
+          <div class="content">
+            <span>${comment.user}</span>
+            <div class="timestamp">${comment.time}</div>
+            <p>${comment.text}</p>
+            <div class="like-dislike">
+              <button onclick="likeComment(${comments.indexOf(comment)})">Like (${comment.likes})</button>
+              <button onclick="dislikeComment(${comments.indexOf(comment)})">Dislike (${comment.dislikes})</button>
+            </div>
+          </div>
+        `;
+        
+        if (comment.replies.length > 0) {
+          comment.replies.forEach(reply => {
+            const replyItem = document.createElement('li');
+            replyItem.classList.add('reply');
+            replyItem.innerHTML = `
+              <div class="content">
+                <span>${reply.user}</span>
+                <div class="timestamp">${reply.time}</div>
+                <p>${reply.text}</p>
+                <div class="like-dislike">
+                  <button onclick="likeComment(${comments.indexOf(comment)})">Like (${reply.likes})</button>
+                  <button onclick="dislikeComment(${comments.indexOf(comment)})">Dislike (${reply.dislikes})</button>
+                </div>
+              </div>
+            `;
+            commentItem.appendChild(replyItem);
+          });
+        }
+
+        chatLog.appendChild(commentItem);
+      });
+    }
+
+    // Function to like a comment
+    function likeComment(index) {
+      comments[index].likes++;
+      loadComments(); // Refresh the comments display
+    }
+
+    // Function to dislike a comment
+    function dislikeComment(index) {
+      comments[index].dislikes++;
+      loadComments(); // Refresh the comments display
+    }
+
+    // Function to post new comment
+    function postComment() {
+      const input = document.getElementById('commentInput');
+      if (input.value.trim() !== "") {
+        const newComment = {
+          user: usernames[Math.floor(Math.random() * usernames.length)],
+          text: input.value,
+          time: generateRandomTime(),
+          likes: 0,
+          dislikes: 0,
+          replies: []
+        };
+        comments.push(newComment);
+        input.value = ""; // Clear input
+        loadComments(); // Reload the comments to include the new one
+      }
+    }
+
+    // Initial load of comments
+    loadComments();
+</script>
+</body>
+</html>

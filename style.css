@@ -1,0 +1,382 @@
+/* Reset default margin, padding, and box-sizing for all elements */
+body, h1, h2, h3, p, ul, li, img, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+  background: linear-gradient(135deg, #1a002b, #000428); /* Dark gradient background */
+  color: #e3e3e3; /* Light text color for contrast */
+  line-height: 1.8;  /* Improves readability */
+  overflow-x: hidden;  /* Prevents horizontal scroll */
+}
+
+/* Header and Navigation */
+header {
+  background: linear-gradient(90deg, #11092f, #1a0033, #2b0050);  /* Gradient header background */
+  padding: 30px 10px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Adds a subtle shadow */
+  border-bottom: 4px solid #8e44ad;  /* Bottom border for a sleek look */
+}
+
+header h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px #8e44ad, 0 0 30px #5a4dff; /* Neon glow effect */
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #c7b7ff; /* Light purple text */
+}
+
+/* Navigation styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;  /* Space between links */
+  margin-top: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #c7b7ff;
+  text-shadow: 0 0 10px #8e44ad; /* Subtle glow */
+  transition: color 0.3s, text-shadow 0.3s, transform 0.2s;
+}
+
+/* Hover effect for navigation links */
+nav ul li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px #ff94cc, 0 0 30px #ffffff;
+  transform: scale(1.2); /* Slight zoom-in effect */
+}
+
+/* Main Intro Section */
+.intro {
+  max-width: 900px;
+  margin: 50px auto;
+  background: rgba(16, 0, 32, 0.8);  /* Semi-transparent background */
+  padding: 50px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px #5a4dff; /* Adds a glowing effect */
+  text-align: center;
+  color: #ffffff;
+}
+
+.intro h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #8e44ad, 0 0 30px #5a4dff;
+}
+
+.intro p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #c7b7ff;
+}
+
+/* Creator Profiles Section */
+.creators {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;  /* Space between cards */
+  margin-top: 50px;
+}
+
+/* Individual creator card */
+.creator {
+  text-align: center;
+  max-width: 200px;
+  background: linear-gradient(135deg, #1a0033, #2b0050);
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px #5a4dff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for creator cards */
+.creator:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px #ff94cc;
+}
+
+.creator img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #8e44ad;
+  margin-bottom: 15px;
+}
+
+.creator h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff94cc;
+  margin-bottom: 10px;
+}
+
+.creator p {
+  font-size: 1rem;
+  color: #c7b7ff;
+}
+
+/* Content Section */
+.content {
+  max-width: 900px;
+  margin: 50px auto;
+  background: rgba(32, 0, 64, 0.9);
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px #8e44ad;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #5a4dff, 0 0 25px #8e44ad;
+  color: #ffffff;
+}
+
+.content ul {
+  list-style: disc;
+  padding-left: 30px;
+  color: #c7b7ff;
+}
+
+/* Stories Section */
+.stories {
+  max-width: 1000px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.stories h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 20px #5a4dff, 0 0 30px #ff94cc;
+  margin-bottom: 40px;
+}
+
+/* Individual story card */
+.story {
+  background: rgba(16, 0, 32, 0.9);
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px #8e44ad;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.story img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 3px solid #5a4dff;
+}
+
+.story h3 {
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff94cc;
+}
+
+.story p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #c7b7ff;
+}
+
+.story p strong {
+  color: #ff94cc;
+  text-shadow: 0 0 10px #5a4dff;
+}
+
+.story .details{
+  display: none;
+  margin-top: 10px;
+
+}
+
+.story.active .details{
+  display: block;
+}
+
+.reviews {
+  margin-top: 15px;
+}
+/* Hover effect for story images */
+.story:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(140, 103, 255, 0.7);
+}
+
+.story img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.story img:hover {
+  transform: scale(1.2);
+}
+
+@media(max-width: 768px){
+  .story{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    
+  }
+}
+
+/* ourStories Section */
+.Ostories {
+  max-width: 1000px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.Ostories h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 20px #5a4dff, 0 0 30px #ff94cc;
+  margin-bottom: 40px;
+}
+
+.Ostory {
+  background: rgba(155, 65, 197, 0.9);
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px #dd9ff8;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Ostory img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 3px solid #5a4dff;
+}
+
+.Ostory h3 {
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff94cc;
+}
+
+.Ostory p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #c7b7ff;
+}
+
+.Ostory p strong {
+  color: #ce8dae;
+  text-shadow: 0 0 10px #5a4dff;
+}
+.Ostory:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(140, 103, 255, 0.7);
+}
+
+.Ostory img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.Ostory img:hover {
+  transform: scale(1.1);
+}
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #6e25b3, #2b0050);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1rem;
+  color: #c7b7ff;
+  border-top: 4px solid #8e44ad;
+}
+.content p {
+  font-size: 1.1rem;
+  color: #d8d8ff;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+/* Grid layout for cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Individual card styles */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(140, 103, 255, 0.7);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 1.8rem;
+  color: #a394ff;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #d8d8ff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Hidden frame (probably used for tracking or hidden elements) */
+.hiddenFrame{
+    height:1px;
+    width:1px;
+    opacity: 0;
+    }
